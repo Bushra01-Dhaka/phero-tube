@@ -1,12 +1,17 @@
 const loadData = async () => {
     const response = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await response.json();
-    const trimData = data.data;
+    const trimData = data?.data;
     handleBtnCreate(trimData);
     handleBtn();
+   
+    
 
 }
 
+
+
+//4 TABS ARE CREATED DYNAMICALLY
 const handleBtnCreate = (cards) => {
     console.log(cards);
     const cardContainer = document.getElementById('card-container');
@@ -28,6 +33,7 @@ const handleBtnCreate = (cards) => {
 
 }
 
+//HANDLE BUTTON FUNCTION
 const handleBtn = async (cards) => {
     const response = await fetch('https://openapi.programming-hero.com/api/videos/category/1000');
     const data = await response.json();
@@ -63,6 +69,12 @@ const handleBtn = async (cards) => {
     });
 
 
+}
+
+// GOTO MYBLOG HTML PAGE AFTER CLICKING BTN BLOG
+const goToMYBlog = () =>
+{
+    window.open("myblog.html");
 }
 
 loadData();

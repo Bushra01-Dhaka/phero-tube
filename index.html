@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PH Tube</title>
     <link rel="shortcut icon" href="./play.png" type="image/x-icon">
+    <!-- my blog HTML FILE VISIT -->
+    <link rel="stylesheet" href="myblog.html" class="html">
 
     <!-- google font: INTER -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,24 +33,14 @@
     <header class="container mx-auto py-4">
         <div class="navbar bg-base-100">
             <div class="navbar-start">
-                <div class="dropdown">
-                    <label tabindex="0" class="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
-                    </label>
-
-                </div>
-                <a class="btn btn-ghost normal-case text-2xl font-bold"><i
+                <a class="btn btn-ghost normal-case text-md md:text-2xl lg:text-2xl font-bold"><i
                         class="fa-solid fa-circle-play text-red-600"></i><span class="text-red-600">PH </span>Tube</a>
             </div>
-            <div class="navbar-center hidden lg:flex">
-                <button class="btn hover:border-red-600 hover:border-2x hover:bg-white">Sort by view</button>
+            <div class="navbar-center  ">
+                <button class="btn text-red-600 hover:border-red-600 hover:border-2x hover:bg-white">Sort by view</button>
             </div>
             <div class="navbar-end">
-                <a class="btn btn-md bg-red-600 text-white hover:border-2px hover:bg-white hover:border-red-600 hover:text-black">Blog</a>
+                <a onclick = "goToMYBlog()" class="btn btn-md bg-red-600 text-white hover:border-2px hover:bg-white hover:border-red-600 hover:text-black">Blog</a>
             </div>
         </div>
         <hr class="my-4">
@@ -62,7 +54,7 @@
       </div>
 
       <!-- ALL CARDS ARE HERE -->
-      <div id="details-card-cotainer" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div id="details-card-cotainer" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 lg:p-0">
 
         <!-- each card div created dynamically -->
 
