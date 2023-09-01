@@ -84,6 +84,37 @@ const goToMYBlog = () =>
 }
 
 
+
+// const handleEmtyContent = async(cards) =>
+// {
+//     const response = await fetch('https://openapi.programming-hero.com/api/videos/category/1005');
+//     const data = await response.json();
+//     // console.log(data.data);
+//     console.log("clickId", cards);
+
+
+//     const detailsCardContainer = document.getElementById('details-card-cotainer');
+//     detailsCardContainer.innerHTML = '';
+
+//     const div = document.createElement('div');
+//     div.innerHTML = ` 
+//          <div class= "flex justify-center items-center"> 
+//            <div> 
+//               <h2 class = "text-4xl font-bold">Oops!! Sorry, There is no content here<h2>
+//            </div>
+//          </div>
+//         ` ;
+   
+
+//   detailsCardContainer.appendChild(div);
+    
+// }
+
+
+
+
+
+
 loadData();
 handleBtn("1000");
-
+// handleEmtyContent('1005');

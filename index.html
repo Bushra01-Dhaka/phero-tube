@@ -21,26 +21,27 @@
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/64bf242837.js" crossorigin="anonymous"></script>
     <style>
-        body{
+        body {
             font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
 
-<body >
+<body>
 
     <!-- navbar -->
     <header class="container mx-auto py-4">
         <div class="navbar bg-base-100">
             <div class="navbar-start">
-                <a class="btn btn-ghost normal-case text-md md:text-2xl lg:text-2xl font-bold"><i
-                        class="fa-solid fa-circle-play text-red-600"></i><span class="text-red-600">PH </span>Tube</a>
+                <a href="index.html"><img class="pr-4" src="./Logo.png" alt=""></a>
             </div>
             <div class="navbar-center  ">
-                <button class="btn text-red-600 hover:border-red-600 hover:border-2x hover:bg-white">Sort by view</button>
+                <button class="btn text-red-600 hover:border-red-600 hover:border-2x hover:bg-white">Sort by
+                    view</button>
             </div>
             <div class="navbar-end">
-                <a onclick = "goToMYBlog()" class="btn btn-md bg-red-600 text-white hover:border-2px hover:bg-white hover:border-red-600 hover:text-black">Blog</a>
+                <a onclick="goToMYBlog()"
+                    class="btn btn-md bg-red-600 text-white hover:border-2px hover:bg-white hover:border-red-600 hover:text-black">Blog</a>
             </div>
         </div>
         <hr class="my-4">
@@ -48,31 +49,31 @@
 
     <main class="container mx-auto">
 
-      <div id="card-container">
-        <!-- dynamically created 4 tabs/buttons  -->
-        
-      </div>
+        <div id="card-container" class="tabs tabs p-5 w-95 m-auto text-center flex justify-center gap-4">
+            <!-- dynamically created 4 tabs/buttons  -->
 
-      <!-- ALL CARDS ARE HERE -->
-      <div id="details-card-cotainer" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 lg:p-0">
+        </div>
 
-        <!-- each card div created dynamically -->
+        <!-- ALL CARDS ARE HERE -->
+        <div id="details-card-cotainer" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 lg:p-0">
+
+            <!-- each card div created dynamically -->
 
 
-      </div>
+        </div>
 
 
 
     </main>
 
-   
+
 
 
 
 
 
     <!-- js -->
-    <script src="./js/index.js"></script>
+    <script src="./js/trial.js"></script>
 </body>
 
 </html>
