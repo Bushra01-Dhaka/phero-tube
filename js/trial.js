@@ -48,6 +48,19 @@ const handleBtn = async (cards) => {
     console.log("clickId", cards);
 
     const detailsCardContainer = document.getElementById('details-card-cotainer');
+
+    //functionality for NO CONTENT IN DRAWING BTN
+    console.log("Length: ",data.data.length);
+    if(data.data.length === 0)
+    {
+        document.getElementById('drawing-container').classList.remove('hidden');
+    }
+    else 
+    {
+        document.getElementById('drawing-container').classList.add('hidden');
+    }
+    
+    //reload all section 
     detailsCardContainer.innerHTML = '';
 
     data?.data.forEach(card => {
@@ -89,9 +102,8 @@ const goToMYBlog = () =>
 
 
 
-
-
-
 loadData();
 // handleEmtyContent("1005");
 handleBtn("1000");
+
+
