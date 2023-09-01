@@ -25,7 +25,77 @@
 </head>
 <body>
     
-<h1>heeeeeeeheeeee my blog page</h1>
+<!-- navbar -->
+<header class="container mx-auto py-4">
+    <div class="navbar bg-base-100">
+        <div class="navbar-start">
+            <a href="index.html"><img class="pr-4" src="./Logo.png" alt=""></a>
+        </div>
+        <div class="navbar-center  ">
+            <button class="btn text-red-600 hover:border-red-600 hover:border-2x hover:bg-white">Questions & Answer</button>
+        </div>
+        <div class="navbar-end">
+            <a href="myblog.html"
+                class="btn btn-md bg-red-600 text-white hover:border-2px hover:bg-white hover:border-red-600 hover:text-black">Blog</a>
+        </div>
+    </div>
+    <hr class="my-4">
+</header>
+
+<main class="container mx-auto">
+    <div class="p-4">
+        <h2 class="font-bold text-4xl p-3 bg-red-600 text-white rounded">1. Discuss the scope of var, let, and const</h2>
+        <p class="mt-4 text-xl">In JavaScript, the scope of a variable determines where it can be accessed. There are three types of scope in JavaScript:
+            <br>
+            <span class="font-bold">Global scope:</span> The global scope is the outermost scope in a JavaScript program. Variables declared in the global scope are accessible from anywhere in the program. 
+            <br>
+            <span class="font-bold">Function scope:</span> The function scope is the scope of a function. Variables declared in the function scope are only accessible from within the function.
+            <br>
+            <span class="font-bold">Block scope: </span>The block scope is the scope of a block of code. Variables declared in the block scope are only accessible from within the block.
+            <br>
+            <br>
+            The keywords var, let, and const are used to declare variables. The scope of a variable declared with var is the function scope or the global scope, depending on where it is declared. The scope of a variable declared with let or const is the block scope.
+            <br>
+            <br>
+            <span class="font-semibold">Here is an example of the difference between the scope of var and let:</span>
+            <br>
+            <br>
+           
+            var a = 10;    //In the  global scope a is declared <br>
+
+            function result() {<br>
+            let b = 20;    //In the function scope b is declared <br>
+
+            console.log(a);     // Here we can see that, a is accessible from result()<br>
+            console.log(b);     //Here we can see that, b is accessible from result()<br>
+            }<br>
+
+            result();<br>
+
+            console.log(a);     // Here we can see that, a is accessible from result() <br>
+            console.log(b);      // Here we will get ERROR!, b isn't accessible from result()<br>
+
+            <br>
+            <br>
+            As you can see, the variable x is accessible from both the global scope and the function scope, because it was declared with var. The variable y, on the other hand, is only accessible from within the function scope, because it was declared with let.
+            <br><br>
+            <span class="font-semibold">Here is an example of a constant variable:</span>
+             <br>
+             <br>
+             const PI = 3.14; // PI is a constant variable <br>
+             const PI = 3.14; // PI is a constant variable <br>
+
+            function output() {<br>
+            console.log(PI); // PI is accessible from within output()<br>
+
+            // PI = 4.14; // Error, PI cannot be reassigned<br>
+            }<br>
+
+            output();<br>
+        </p>
+
+    </div>
+</main>
    
 
 </body>

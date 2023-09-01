@@ -2,6 +2,7 @@ const loadData = async () => {
     const response = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await response.json();
     const trimData = data?.data;
+    console.log(data.data);
     handleBtnCreate(trimData);
     // handleBtn();
    
@@ -42,13 +43,13 @@ const handleBtnCreate = async (cards) => {
 const handleBtn = async (cards) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${cards}`);
     const data = await response.json();
-    // console.log(data.data);
+    console.log(data.data);
     console.log("clickId", cards);
 
     const detailsCardContainer = document.getElementById('details-card-cotainer');
     detailsCardContainer.innerHTML = '';
 
-    data?.data?.forEach(card => {
+    data?.data.forEach(card => {
         const div = document.createElement('div');
         div.classList = `card bg-base-100 shadow-xl mb-8`;
         div.innerHTML = ` 
@@ -60,9 +61,10 @@ const handleBtn = async (cards) => {
                   <h3 class="text-xl font-bold">${card?.title}</h3>
                    <div class="my-4">
                    <p>${card?.authors[0]?.profile_name
-                   }<span><i id="card-check-list" class=" pl-2 fa-solid fa-circle-check text-red-600"></i></span>
+                   } <span>${card?.authors[0]?.verified? `<img class="inline pl-2 text-red-600 text-sm" src="icons8-check (1).svg">`: `` 
+                }</span>
                    </p>
-                   <p class="mt-4">${card?.others?.views} views</p>
+                   <p class="mt-4">${card?.others?.views} views</p>   
                    
                    </div>
                </div>
@@ -72,10 +74,11 @@ const handleBtn = async (cards) => {
         
         ` ;
         detailsCardContainer.appendChild(div);
-    });
+    })
 
 
 }
+
 
 // GOTO MYBLOG HTML PAGE AFTER CLICKING BTN BLOG
 const goToMYBlog = () =>
@@ -85,16 +88,17 @@ const goToMYBlog = () =>
 
 
 
+// //handle empty content of DRAWING SECTION
 // const handleEmtyContent = async(cards) =>
 // {
-//     const response = await fetch('https://openapi.programming-hero.com/api/videos/category/1005');
+//     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${cards}`);
 //     const data = await response.json();
-//     // console.log(data.data);
 //     console.log("clickId", cards);
+//     // console.log(data?.data);
 
 
-//     const detailsCardContainer = document.getElementById('details-card-cotainer');
-//     detailsCardContainer.innerHTML = '';
+//     const drawingContainer = document.getElementById('drawing-container');
+//     drawingContainer.innerHTML = '';
 
 //     const div = document.createElement('div');
 //     div.innerHTML = ` 
@@ -106,7 +110,7 @@ const goToMYBlog = () =>
 //         ` ;
    
 
-//   detailsCardContainer.appendChild(div);
+//   drawingContainer.appendChild(div);
     
 // }
 
@@ -116,5 +120,5 @@ const goToMYBlog = () =>
 
 
 loadData();
+// handleEmtyContent("1005");
 handleBtn("1000");
-// handleEmtyContent('1005');
