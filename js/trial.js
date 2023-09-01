@@ -2,9 +2,12 @@ const loadData = async () => {
     const response = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await response.json();
     const trimData = data?.data;
-    console.log(data.data);
     handleBtnCreate(trimData);
     // handleBtn();
+
+    console.log(data.data);
+
+
    
     
 
@@ -23,9 +26,7 @@ const handleBtnCreate = async (cards) => {
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = '';
 
-    // 4 tabs are created (ALL, MUSIC, COMEDY, DRAWING)
-    // flex  justify-center items-center gap-4
-    // tabs tabs p-5 w-95 m-auto text-center flex justify-center 
+    // 4 tabs are created (ALL, MUSIC, COMEDY, DRAWING) 
 
     cards?.forEach((card) => {
         const div = document.createElement('div');
@@ -85,34 +86,6 @@ const goToMYBlog = () =>
 {
     window.open("myblog.html");
 }
-
-
-
-// //handle empty content of DRAWING SECTION
-// const handleEmtyContent = async(cards) =>
-// {
-//     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${cards}`);
-//     const data = await response.json();
-//     console.log("clickId", cards);
-//     // console.log(data?.data);
-
-
-//     const drawingContainer = document.getElementById('drawing-container');
-//     drawingContainer.innerHTML = '';
-
-//     const div = document.createElement('div');
-//     div.innerHTML = ` 
-//          <div class= "flex justify-center items-center"> 
-//            <div> 
-//               <h2 class = "text-4xl font-bold">Oops!! Sorry, There is no content here<h2>
-//            </div>
-//          </div>
-//         ` ;
-   
-
-//   drawingContainer.appendChild(div);
-    
-// }
 
 
 
