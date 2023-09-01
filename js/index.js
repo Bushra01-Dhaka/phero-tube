@@ -1,3 +1,4 @@
+let time = 0;
 const loadData = async () => {
     const response = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await response.json();
@@ -8,8 +9,8 @@ const loadData = async () => {
     console.log(data.data);
 
 
-   
-    
+
+
 
 }
 
@@ -40,6 +41,36 @@ const handleBtnCreate = async (cards) => {
 
 }
 
+
+// convert second into hours and minutes
+const convertTime = (s) => {
+    
+    const totalSecond = s;
+    console.log(typeof s);
+    const hours = parseInt(totalSecond / 3600);
+    const remainingSecond = s % 3600;
+    const minutes = parseInt(remainingSecond / 60);
+    
+
+    //    time =  console.log(`${hours}hrs ${minutes} min ago`);
+    if(hours === 0 && minutes === 0)
+    {
+        time = ``;
+    }
+    else 
+    {
+        time = `${hours}hrs ${minutes} min ago`;
+    }
+    
+    console.log(time);
+
+    
+
+}
+// convertTime(14200);
+
+
+
 //HANDLE BUTTON FUNCTION
 const handleBtn = async (cards) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${cards}`);
@@ -49,25 +80,35 @@ const handleBtn = async (cards) => {
 
     const detailsCardContainer = document.getElementById('details-card-cotainer');
 
+
+
     //functionality for NO CONTENT IN DRAWING BTN
-    console.log("Length: ",data.data.length);
-    if(data.data.length === 0)
-    {
+    console.log("Length: ", data.data.length);
+    if (data.data.length === 0) {
         document.getElementById('drawing-container').classList.remove('hidden');
     }
-    else 
-    {
+    else {
         document.getElementById('drawing-container').classList.add('hidden');
     }
-    
+
     //reload all section 
     detailsCardContainer.innerHTML = '';
 
     data?.data.forEach(card => {
         const div = document.createElement('div');
-        div.classList = `card bg-base-100 shadow-xl mb-8`;
+
+        // call function for CONVERTING TIME
+        convertTime(card?.others?.posted_date? card?.others?.posted_date:0);
+
+        div.classList = `card bg-base-100 shadow-xl mb-8 `;
         div.innerHTML = ` 
-        <figure><img class="w-full h-[200px]" src="${card?.thumbnail? card.thumbnail: "Image is not available"}" alt="Shoes" /></figure>
+        <figure><img class="w-full h-[200px]" src="${card?.thumbnail ? card.thumbnail : "Image is not available"}" alt="Shoes" /></figure>
+
+        
+        <p class= "absolute right-4 bottom-[52%] bg-opacity-25% my-2  bg-slate-900 text-white text-sm w-[50%] text-center rounded">${time}</p>
+        
+
+
             <div class="card-body">
               <div class="flex flex-row gap-4">
                <img src="${card?.authors[0]?.profile_picture}" class="rounded-[50%] w-[40px] h-[40px] object-cover"> 
@@ -75,8 +116,8 @@ const handleBtn = async (cards) => {
                   <h3 class="text-xl font-bold">${card?.title}</h3>
                    <div class="my-4">
                    <p>${card?.authors[0]?.profile_name
-                   } <span>${card?.authors[0]?.verified? `<img class="inline pl-2 text-red-600 text-sm" src="icons8-check (1).svg">`: `` 
-                }</span>
+            } <span>${card?.authors[0]?.verified ? `<img class="inline pl-2 text-red-600 text-sm" src="icons8-check (1).svg">` : ``
+            }</span>
                    </p>
                    <p class="mt-4">${card?.others?.views} views</p>   
                    
@@ -94,9 +135,11 @@ const handleBtn = async (cards) => {
 }
 
 
+
+
+
 // GOTO MYBLOG HTML PAGE AFTER CLICKING BTN BLOG
-const goToMYBlog = () =>
-{
+const goToMYBlog = () => {
     window.open("myblog.html");
 }
 
