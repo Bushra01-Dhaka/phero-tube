@@ -5,10 +5,47 @@ const loadData = async () => {
     const data = await response.json();
     const trimData = data?.data;
     handleBtnCreate(trimData);
+    headerCreate(trimData);
     // handleBtn();
 
     console.log(data.data);
 
+}
+
+// HEADER NAV BAR 
+
+const headerCreate = async (cc) =>
+{
+    const response = await fetch('https://openapi.programming-hero.com/api/videos/categories');
+    const data = await response.json();
+    const trimData = data?.data;
+
+    const navConainer = document.getElementById('header-id');
+    navConainer.innerHTML = '';
+
+    
+        const div = document.createElement('div');
+        div.innerHTML = ` 
+        <div class="navbar bg-base-100">
+        <div class="navbar-start">
+            <a href="index.html"><img class="pr-4" src="./Logo.png" alt=""></a>
+        </div>
+        <div  class="navbar-center">
+            <button onclick="sortCardsByViews();" class="btn text-red-600 hover:border-red-600 hover:border-2x hover:bg-white">Sort by
+                view</button>
+        </div>
+        <div class="navbar-end">
+            <a onclick="goToMYBlog()"
+                class="btn btn-md bg-red-600 text-white hover:border-2px hover:bg-white hover:border-red-600 hover:text-black">Blog</a>
+        </div>
+    </div>
+    <hr class="my-4">
+        
+        `;
+
+   
+
+    navConainer.appendChild(div);
 }
 
 
